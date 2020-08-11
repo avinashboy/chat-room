@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <script src="./js/socket.js"></script>
+  <link rel="shortcut icon" href="./icon/h1.ico" type="image/x-icon">
+  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"></script>
+  <title>Chat</title>
+</head>
+
+<body>
+
+  <div class="show-users">
+    <h3>No of users:<span id="demo"></span></h3>
+  </div>
+  <div class="container">
+    <h1 class="leadss">Avaliable:</h1>
+    <div class="boxy">
+      <div class="box"><button onclick="list()" id="list" class="hidess">Join room</button></div>
+      <div class="box"><button onclick="create()" id="name" class="hides">Create room</button></div>
+    </div>
+    <div class="show">
+      <button class="back" onclick="backme()">Back</button>
+      <div class="list" id="lists">
+        <% Object.keys(rooms).forEach(room => { %>
+        <h3><a href="/<%= room %>">&nbsp;&nbsp;<%= room %>&nbsp;&nbsp;</a></h3>
+        <% }) %>
+      </div>
+      <div class="name">
+        <form action="/create" method="post">
+          <input type="text" name="create" id="names" placeholder="Name" required class="input">
+          <button type="submit" class="btn btn-primary" id='btn'>Create room</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="foot_box">
+      <div class="icon text-muted">
+        <i class="far fa-copyright"></i>.Copyright 2020. All rights reserved
+      </div>
+      <div class="icon text-muted">
+        <a href="https://forms.gle/U8vBmWHDaDb9Y9859"><i class="fas fa-paper-plane"></i></a>
+      </div>
+    </div>
+  </footer>
+  <script src="/js/apps.js"></script>
+</body>
+
+</html>
